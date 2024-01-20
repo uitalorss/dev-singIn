@@ -33,6 +33,10 @@ export class UsersService {
     return { name: user.name, jwtToken, email: user.email };
   }
 
+  public async findAll() {
+    return this.usersModel.find();
+  }
+
   private async findByEmail(email: string): Promise<User> {
     const user = await this.usersModel.findOne({ email });
     if (!user) {
